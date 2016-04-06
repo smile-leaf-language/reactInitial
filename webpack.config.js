@@ -1,7 +1,9 @@
 var path = require("path");
+var webpack=require("webpack");
+
 module.exports = {
     entry: [
-        'webpack/hot/-dev-server',
+        'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080/',
         path.resolve(__dirname, 'app/index.js')
     ],
@@ -13,7 +15,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                loader: ['react-hot','babel'],
+                loaders: ['react-hot','babel'],
                 exclude:path.resolve('_dirname','node_modules')
             },
             {
@@ -25,8 +27,8 @@ module.exports = {
                 loader:'style!css!less'
             }
         ]
-    }
-    plugins:[
+    },
+    plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ]
